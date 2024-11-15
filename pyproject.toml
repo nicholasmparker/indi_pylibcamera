@@ -1,3 +1,34 @@
 [build-system]
-requires = ["setuptools"]
+requires = ["setuptools>=45", "wheel"]
 build-backend = "setuptools.build_meta"
+
+[project]
+name = "indi_pylibcamera"
+version = "0.9.0"
+description = "INDI driver for Raspberry Pi cameras using libcamera"
+readme = "README.md"
+authors = [
+    {name = "Nicholas Parker", email = "nicholasmparker@gmail.com"}
+]
+license = {text = "GPL-3.0"}
+requires-python = ">=3.7"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research", 
+    "Topic :: Scientific/Engineering :: Astronomy",
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Operating System :: POSIX :: Linux",
+]
+dependencies = [
+    "astropy",
+    "numpy",
+    "picamera2",
+]
+
+[project.urls]
+Homepage = "https://github.com/nicholasmparker/indi_pylibcamera"
+Repository = "https://github.com/nicholasmparker/indi_pylibcamera.git"
+
+[project.scripts]
+indi_pylibcamera = "indi_pylibcamera.indi_pylibcamera:main"
