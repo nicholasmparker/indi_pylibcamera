@@ -1,5 +1,7 @@
 # indi_pylibcamera
-This project implements a Raspberry Pi camera driver for INDI (https://indilib.org/). 
+Fork of https://github.com/scriptorron/indi_pylibcamera with additional camera support.
+
+This project implements a Raspberry Pi camera driver for INDI (https://indilib.org/).
 
 Raspberry Pi cameras allow the amateur astronomer to make astonishing pictures with small budget. Especially the
 Raspberry Pi HQ camera can compete with expensive astro cameras.
