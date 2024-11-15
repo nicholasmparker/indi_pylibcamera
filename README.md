@@ -1,5 +1,5 @@
 # indi_pylibcamera
-Fork of https://github.com/scriptorron/indi_pylibcamera with additional camera support.
+Fork of https://github.com/scriptorron/indi_pylibcamera with additional camera support, maintained at https://github.com/nicholasmparker/indi_pylibcamera.
 
 This project implements a Raspberry Pi camera driver for INDI (https://indilib.org/).
 
