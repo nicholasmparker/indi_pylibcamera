@@ -1156,6 +1156,20 @@ class indi_pylibcamera(indidevice):
                 send_defVector=send_defVector,
             )
             self.CameraVectorNames.append("CAMCTRL_AFMODE")
+            
+            # Add focus control for IMX519
+            if self.CameraThread.CamProps["Model"] == "imx519":
+                self.checkin(
+                    INumberVector(
+                        device=self.device, timestamp=self.timestamp, group=group,
+                        name="CAMCTRL_FOCUS", label="Focus Position",
+                        elements=[
+                            INumber(name="FOCUS_ABSOLUTE", label="Position", min=0, max=1023, step=1, value=512, format="%4.0f"),
+                        ],
+                    ),
+                    send_defVector=send_defVector,
+                )
+                self.CameraVectorNames.append("CAMCTRL_FOCUS")
         #
         if "AfMetering" in self.CameraThread.camera_controls:
             self.checkin(

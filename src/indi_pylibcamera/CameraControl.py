@@ -306,7 +306,19 @@ class CameraControl:
             true_size = size
             binning = (1, 1)
             if self.do_CameraAdjustments:
-                if self.CamProps["Model"] == 'imx477':
+                if self.CamProps["Model"] == 'imx519':
+                    if size == (1920, 1080):
+                        true_size = (1920, 1080)
+                        binning = (2, 2)
+                    elif size == (2328, 1748):
+                        true_size = (2328, 1748)
+                        binning = (2, 2)  
+                    elif size == (4656, 3496):
+                        true_size = (4656, 3496)
+                        binning = (1, 1)
+                    else:
+                        logger.warning(f'Unsupported frame size {size} for imx519!')
+                elif self.CamProps["Model"] == 'imx477':
                     if size == (1332, 990):
                         true_size = (1332, 990)
                         binning = (2, 2)
@@ -402,6 +414,7 @@ class CameraControl:
         else:
             if force_Restart != "auto":
                 logger.warning(f'unknown INI value for camera restart: force_Restart={force_Restart}')
+            # IMX519 needs restarts for exposure changes
             self.needs_Restarts = self.CamProps["Model"] in ["imx290", "imx519"]
         # start exposure loop
         self.Sig_ActionExit.clear()
